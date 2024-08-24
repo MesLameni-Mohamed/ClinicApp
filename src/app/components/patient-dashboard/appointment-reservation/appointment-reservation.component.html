@@ -1,0 +1,35 @@
+<div class="container">
+    <h2>Appointment Reservation</h2>
+    <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="date">Date:</label>
+        <input type="date" id="date" formControlName="date" class="form-control" required>
+        <div *ngIf="appointmentForm.get('date')?.invalid && appointmentForm.get('date')?.touched" class="text-danger">
+          Date is required.
+        </div>
+      </div>
+      <div class="form-group mt-3">
+        <label for="time">Time:</label>
+        <input type="time" id="time" formControlName="time" class="form-control" required>
+        <div *ngIf="appointmentForm.get('time')?.invalid && appointmentForm.get('time')?.touched" class="text-danger">
+          Time is required.
+        </div>
+      </div>
+      <div class="form-group mt-3">
+        <label for="treatmentType">Type of Treatment:</label>
+        <select id="treatmentType" formControlName="treatmentType" class="form-control" required>
+          <option value="" disabled>Select a treatment type</option>
+          <option value="Cleaning">Cleaning</option>
+          <option value="Filling">Filling</option>
+          <option value="Root Canal">Root Canal</option>
+          <option value="Extraction">Extraction</option>
+          <option value="Checkup">Checkup</option>
+        </select>
+        <div *ngIf="appointmentForm.get('treatmentType')?.invalid && appointmentForm.get('treatmentType')?.touched" class="text-danger">
+          Treatment type is required.
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary mt-3">Reserve Appointment</button>
+    </form>
+  </div>
+  

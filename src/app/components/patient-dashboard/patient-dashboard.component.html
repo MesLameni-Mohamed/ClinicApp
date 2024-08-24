@@ -1,0 +1,57 @@
+<!-- src/app/components/patient-dashboard/patient-dashboard.component.html -->
+
+<div class="d-flex flex-column min-vh-100">
+
+  <!-- Header (optional) -->
+  <header class="bg-dark text-white p-3">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <h1 class="h4">Patient Dashboard</h1>
+        <nav>
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link text-white" routerLink="/patient-dashboard">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" routerLink="/patient-dashboard/logout">Logout</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <div class="d-flex flex-grow-1">
+    <!-- Sidebar -->
+    <aside class="bg-light p-3" style="width: 250px;">
+      <h5 class="mb-3">Navigation</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="appointment-reservation" routerLinkActive="active">Appointment Reservation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="appointments-history" routerLinkActive="active">Appointments History</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="personal-data" routerLinkActive="active">Personal Data</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-danger" routerLink="logout">Logout</a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-grow-1 p-4">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+
+  <!-- Footer (optional) -->
+  <footer class="bg-dark text-white p-3 mt-auto">
+    <div class="container text-center">
+      <p class="mb-0">&copy; 2024 Dental Clinic. All rights reserved.</p>
+    </div>
+  </footer>
+</div>

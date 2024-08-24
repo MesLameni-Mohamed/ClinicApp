@@ -1,0 +1,98 @@
+<!-- src/app/components/admin-dashboard/admin-dashboard.component.html -->
+
+<div class="container mt-5">
+  <h2 class="text-center">Admin Dashboard</h2>
+  
+  <!-- Statistics Section -->
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <div class="card text-white bg-primary mb-3">
+        <div class="card-header">Daily Visits</div>
+        <div class="card-body">
+          <h5 class="card-title">{{ statistics.todayVisits }}</h5>
+          <p class="card-text">Patients visited today.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-white bg-success mb-3">
+        <div class="card-header">Monthly Visits</div>
+        <div class="card-body">
+          <h5 class="card-title">{{ statistics.monthlyVisits }}</h5>
+          <p class="card-text">Patients visited this month.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-white bg-info mb-3">
+        <div class="card-header">Total Patients</div>
+        <div class="card-body">
+          <h5 class="card-title">{{ totalPatients }}</h5>
+          <p class="card-text">Patients registered in total.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Daily Patient Appointments Section -->
+  <div class="row mt-5">
+    <div class="col-md-12">
+      <h4>Daily Patient Appointments</h4>
+      <button class="btn btn-primary mb-3" (click)="addAppointment()">Add Appointment</button>
+      <div *ngIf="dailyPatientAppointments.length > 0; else noAppointments">
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let item of dailyPatientAppointments">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <strong>{{ item.patient.name }}</strong> ({{ item.patient.email }})
+                <br>
+                Appointment at: {{ item.appointment.time }} with Dr. {{ item.appointment.doctor }}
+              </div>
+              <div>
+                <button class="btn btn-sm btn-secondary me-2" (click)="editAppointment(item)">
+                  Edit
+                </button>
+                <button class="btn btn-sm btn-danger" (click)="deletePatient(item.patient.id)">
+                  Delete
+                </button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <ng-template #noAppointments>
+        <p class="text-muted">No appointments scheduled for today.</p>
+      </ng-template>
+    </div>
+  </div>
+
+  <!-- All Patients Section -->
+  <div class="row mt-5">
+    <div class="col-md-12">
+      <h4>All Patients</h4>
+      <button class="btn btn-primary mb-3" (click)="addPatient()">Add Patient</button>
+      <div *ngIf="allPatients.length > 0; else noPatients">
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let patient of allPatients">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <strong>{{ patient.name }}</strong> ({{ patient.email }})
+              </div>
+              <div>
+                <button class="btn btn-sm btn-secondary me-2" (click)="editPatient(patient)">
+                  Edit
+                </button>
+                <button class="btn btn-sm btn-danger" (click)="deletePatient(patient.id)">
+                  Delete
+                </button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <ng-template #noPatients>
+        <p class="text-muted">No patients registered.</p>
+      </ng-template>
+    </div>
+  </div>
+</div>
