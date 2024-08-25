@@ -11,6 +11,7 @@ export interface Patient {
   id: string;
   name: string;
   email: string;
+  address: string;
 }
 
 export interface PatientAppointment {
@@ -27,6 +28,7 @@ export interface PersonalInfo {
   name: string;
   email: string;
   phone: string;
+  address: string;
 }
 
 export interface Statistics {

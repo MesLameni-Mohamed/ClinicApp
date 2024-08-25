@@ -20,7 +20,8 @@ export class PatientDashboardComponent implements OnInit {
   personalInfo: PersonalInfo = {
     name: '',
     email: '',
-    phone: ''
+    phone: '',
+    address: ''
   };
 
   constructor(private patientService: PatientService) { }

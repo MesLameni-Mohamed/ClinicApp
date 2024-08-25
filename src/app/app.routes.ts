@@ -9,6 +9,7 @@ import { AppointmentReservationComponent } from './components/patient-dashboard/
 import { AppointmentsHistoryComponent } from './components/patient-dashboard/appointments-history/appointments-history.component';
 import { PersonalDataComponent } from './components/patient-dashboard/personal-data/personal-data.component';
 import { LogoutComponent } from './components/patient-dashboard/logout/logout.component';
+import { HomeComponent } from './components/home/home.component';
 
 export const routes: Routes = [
   {
@@ -22,6 +23,7 @@ export const routes: Routes = [
       { path: 'logout', component: LogoutComponent },
     ],
   },
-  { path: '', redirectTo: 'patient-dashboard', pathMatch: 'full' },
-  { path: '**', redirectTo: 'patient-dashboard' },
+  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '**', redirectTo: 'home' },
 ];
