@@ -1,7 +1,7 @@
 // src/app/models/interfaces.ts
 
 export interface Appointment {
-  ()
+  
   date: string;
   time: string;
   treatmentType: string;
