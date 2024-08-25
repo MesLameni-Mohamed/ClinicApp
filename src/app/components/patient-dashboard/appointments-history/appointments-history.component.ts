@@ -15,7 +15,7 @@ export class AppointmentsHistoryComponent implements OnInit {
   pastAppointments$: Observable<Appointment[]>;
 
   constructor(private appointmentService: AppointmentService) {
-    this.pastAppointments$ = this.appointmentService.getPastAppointments();
+    this.pastAppointments$ = this.appointmentService.getAppointments();
   }
 
   ngOnInit(): void {}

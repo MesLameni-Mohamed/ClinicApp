@@ -1,35 +1,43 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable , of} from 'rxjs';
+import { Observable } from 'rxjs';
 import { Appointment } from '../models/interfaces';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppointmentService {
-  private apiUrl = 'http://your-backend-url/api/appointments'; // Replace with your backend API URL
+  private apiUrl = 'http://localhost:3000/api/appointments'; // Backend API URL
 
   constructor(private http: HttpClient) {}
 
-  // Method to reserve an appointment
-  reserveAppointment(appointment: Appointment): Observable<Appointment> {
-    // Mock implementation for now, replace with an actual HTTP request to your backend
-    console.log('Reserving appointment:', appointment);
-    return of(appointment); // Returns the mock appointment data as an observable
+  // Create a new appointment
+  createAppointment(appointment: Appointment): Observable<Appointment> {
+    return this.http.post<Appointment>(this.apiUrl, appointment);
   }
 
-  // Fetch past appointments from the server
-  getPastAppointments(): Observable<Appointment[]> {
-    // Replace this with an actual HTTP request
-    // return this.http.get<Appointment[]>(`${this.apiUrl}/past`);
+  // Get all appointments (could be for a specific user or all)
+  getAppointments(): Observable<Appointment[]> {
+    return this.http.get<Appointment[]>(this.apiUrl);
+  }
 
-    // Mock data for testing purposes
-    const mockAppointments: Appointment[] = [
-      { date: '2024-08-01', time: '10:00 AM', treatmentType: 'Cleaning', status: 'Completed' },
-      { date: '2024-08-10', time: '2:00 PM', treatmentType: 'Filling', status: 'Completed' },
-      { date: '2024-08-15', time: '11:00 AM', treatmentType: 'Checkup', status: 'Cancelled' },
-      // Add more mock data as needed
-    ];
-    return of(mockAppointments);
+  // Get a single appointment by ID
+  getAppointmentById(id: string): Observable<Appointment> {
+    return this.http.get<Appointment>(`${this.apiUrl}/${id}`);
+  }
+
+  // Update an existing appointment
+  updateAppointment(id: string, appointment: Appointment): Observable<Appointment> {
+    return this.http.put<Appointment>(`${this.apiUrl}/${id}`, appointment);
+  }
+
+  // Delete an appointment
+  deleteAppointment(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+
+  // Get past appointments
+  getPastAppointments(): Observable<Appointment[]> {
+    return this.http.get<Appointment[]>(`${this.apiUrl}/past`);
   }
 }

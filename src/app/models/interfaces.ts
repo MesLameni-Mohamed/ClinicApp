@@ -1,6 +1,7 @@
 // src/app/models/interfaces.ts
 
 export interface Appointment {
+  ()
   date: string;
   time: string;
   treatmentType: string;
@@ -8,7 +9,7 @@ export interface Appointment {
 }
 
 export interface Patient {
-  id: string;
+  id: number;
   name: string;
   email: string;
   address: string;

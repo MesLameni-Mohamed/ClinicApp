@@ -2,15 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Appointment, MedicalRecord, PersonalInfo } from '../../models/interfaces';
 import { PatientService } from '../../services/patient.service';
-import { FormsModule } from '@angular/forms';  // <-- Import FormsModule
-import { RouterModule } from '@angular/router'; // Import RouterModule
-
-
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-patient-dashboard',
   standalone: true,
-  imports: [CommonModule, FormsModule,RouterModule],  // <-- Add FormsModule to imports array
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './patient-dashboard.component.html',
   styleUrls: ['./patient-dashboard.component.css']
 })
@@ -24,7 +22,7 @@ export class PatientDashboardComponent implements OnInit {
     address: ''
   };
 
-  constructor(private patientService: PatientService) { }
+  constructor(private patientService: PatientService) {}
 
   ngOnInit() {
     const patientId = '123'; // Replace with the actual patient ID
@@ -40,14 +38,6 @@ export class PatientDashboardComponent implements OnInit {
     this.patientService.updatePersonalInfo(patientId, this.personalInfo).subscribe((data: PersonalInfo) => {
       this.personalInfo = data;
     });
-  }
-
-  bookAppointment() {
-    // Logic for booking an appointment
-  }
-
-  updateMedicalRecords() {
-    // Logic for updating medical records
   }
 
   updatePersonalInfo() {

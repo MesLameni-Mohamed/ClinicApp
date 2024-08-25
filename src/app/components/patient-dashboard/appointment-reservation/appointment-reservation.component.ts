@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 import { AppointmentService } from '../../../services/appointment-service.service';
-
+import { Router } from '@angular/router';
+import {CommonModule} from '@angular/common'
+import { Appointment } from '../../../models/interfaces';
 
 @Component({
   selector: 'app-appointment-reservation',
@@ -11,19 +11,22 @@ import { AppointmentService } from '../../../services/appointment-service.servic
   styleUrls: ['./appointment-reservation.component.css'],
   standalone: true,
   imports: [
-    CommonModule,
-    ReactiveFormsModule, // Ensure ReactiveFormsModule is imported here
-    RouterModule
+    ReactiveFormsModule,CommonModule
   ]
 })
 export class AppointmentReservationComponent implements OnInit {
   appointmentForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private appointmentService: AppointmentService) {
+  constructor(
+    private fb: FormBuilder, 
+    private appointmentService: AppointmentService,
+    private router: Router
+  ) {
     this.appointmentForm = this.fb.group({
       date: ['', Validators.required],
       time: ['', Validators.required],
-      treatmentType: ['', Validators.required]
+      treatmentType: ['', Validators.required],
+      status: ['pending'] // Default status when creating an appointment
     });
   }
 
@@ -31,13 +34,14 @@ export class AppointmentReservationComponent implements OnInit {
 
   onSubmit(): void {
     if (this.appointmentForm.valid) {
-      const appointment = this.appointmentForm.value;
-      this.appointmentService.reserveAppointment(appointment).subscribe({
-        next: (response) => {
+      const appointment: Appointment = this.appointmentForm.value;
+      this.appointmentService.createAppointment(appointment).subscribe({
+        next: (response: Appointment) => {
           console.log('Appointment Reserved:', response);
           alert('Appointment successfully reserved!');
+          this.router.navigate(['/appointments-history']); // Navigate to appointments history or other page after reservation
         },
-        error: (err) => {
+        error: (err: any) => {
           console.error('Error reserving appointment:', err);
           alert('Failed to reserve appointment. Please try again.');
         }
