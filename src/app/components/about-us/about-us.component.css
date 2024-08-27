@@ -1,0 +1,44 @@
+.about-us-section {
+  padding: 60px 0;
+  background-color: #f1f8ff;
+}
+
+.about-us-section h2 {
+  font-size: 3rem;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+.about-us-section .lead {
+  font-size: 1.5rem;
+  color: #555;
+}
+
+.about-us-section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.about-us-section h3 {
+  font-size: 1.75rem;
+  color: #222;
+  margin-top: 20px;
+}
+
+.about-us-section p,
+.about-us-section ul {
+  font-size: 1.25rem;
+  color: #666;
+}
+
+.about-us-section ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.about-us-section .btn-primary {
+  padding: 12px 24px;
+  font-size: 1.25rem;
+  border-radius: 50px;
+}

@@ -1,1 +1,183 @@
-@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');/* You can add global styles to this file, and also import other style files */
+/* Global Styles */
+
+body {
+  font-family: "Jost", sans-serif;
+  background-color: #f1f8ff;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar Styles */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand h1 {
+  color: #222;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.navbar-brand img {
+  max-height: 50px;
+}
+
+/* Button Styles */
+.btn-login {
+  background-color: transparent;
+  color: #222;
+  border: 2px solid #222;
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-weight: bold;
+  margin-left: 10px;
+  font-size: 1.25rem;
+}
+
+.btn-register {
+  background-color: #ff4a57;
+  color: white;
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-weight: bold;
+  margin-left: 10px;
+  font-size: 1.25rem;
+}
+
+.btn-book-online {
+  background-color: #ff4a57;
+  color: white;
+  padding: 14px 28px;
+  font-weight: bold;
+  border-radius: 50px;
+  font-size: 1.25rem;
+}
+
+.btn-book-online:hover {
+  background-color: #e5394e;
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 100px 0;
+  text-align: left;
+}
+
+.hero-section h1 {
+  font-size: 4.5rem;
+  color: #222;
+}
+
+.hero-section p {
+  font-size: 1.25rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* Schedule Section */
+.schedule-section {
+  background-color: #eaf4ff;
+  padding: 50px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.schedule-section h5 {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #222;
+}
+
+.schedule-section p {
+  font-size: 1.25rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.btn-schedule-visit {
+  border: 2px solid #222;
+  color: #222;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+/* Services Section */
+.services-section {
+  padding: 80px 0;
+}
+
+.service-item {
+  text-align: center;
+  padding: 20px;
+}
+
+.service-item img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.service-item h4 {
+  font-size: 2rem;
+  color: #222;
+}
+
+.service-item p {
+  font-size: 1.25rem;
+  color: #666;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 24px;
+  font-weight: bold;
+  border-radius: 50px;
+  font-size: 1.25rem;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Footer */
+.footer {
+  background-color: #222;
+  color: white;
+  padding: 40px 0;
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+.footer p {
+  margin: 0;
+  color: #aaa;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 3rem;
+  }
+
+  .navbar-brand h1 {
+    font-size: 1.5rem;
+  }
+
+  .btn-book-online,
+  .btn-schedule-visit,
+  .btn-login,
+  .btn-register,
+  .btn-primary {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}

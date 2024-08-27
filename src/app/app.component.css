@@ -1,0 +1,55 @@
+/* Base Styling for AppComponent */
+
+/* Set a base font size and background color for the entire app */
+:host {
+  display: block;
+  font-family: "Jost", sans-serif;
+  background-color: #f1f8ff;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Styling for the router outlet */
+router-outlet {
+  display: block;
+  width: 100%;
+  min-height: 100%;
+}
+
+/* Additional Utility Styles */
+
+/* Center content horizontally and vertically */
+.full-page-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Styling for any loading indicators */
+.loading-indicator {
+  font-size: 1.5rem;
+  color: #555;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Ensure a consistent padding and margin for all content */
+.content-wrapper {
+  padding: 20px;
+  margin: auto;
+  max-width: 1200px;
+}
+
+/* Additional styles for global components or specific elements within the app can be added here */
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .content-wrapper {
+    padding: 10px;
+  }
+
+  /* Additional responsive styles as needed */
+}
